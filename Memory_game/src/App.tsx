@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 import Card, { CardProps } from './Card';
 import { resetCardsSort } from './cards_functions/cards_functions';
 
@@ -55,7 +54,7 @@ function App({ cards }: appProps) {
       , gridColumnGap: '35px', gridRowGap: '15px'
     }}>
       {lst.map((card) => {
-        return <Card {...card} key={Math.random()} handleClick={HandleClick}/>
+        return <Card {...card} key={Math.random()} handleClick={HandleClick} />
       })}
     </div>
   )

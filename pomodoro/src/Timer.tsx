@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import PlayButton from './PlayButton';
-import PauseButton from './PauseButton';
-import ConfigButton from './ConfigButton';
-import SettingsContext from './SettingsContext';
+import PlayButton from './buttons/PlayButton';
+import PauseButton from './buttons/PauseButton';
+import ConfigButton from './buttons/ConfigButton';
+import SettingsContext from './settings/SettingsContext';
 
 export default function Timer() {
     const SettingsInfo = useContext(SettingsContext);
@@ -26,7 +26,7 @@ export default function Timer() {
                     if (newMode === 'work') {
                         Setminutes(SettingsInfo.WorkTime);
                         currentValue = SettingsInfo.WorkTime;
-                    }if(newMode === 'pause'){
+                    } if (newMode === 'pause') {
                         Setminutes(SettingsInfo.PauseTime);
                         currentValue = SettingsInfo.PauseTime;
                     }
@@ -40,8 +40,8 @@ export default function Timer() {
         return () => clearInterval(timer);
     }, [SettingsInfo.isStop, second])
 
-    const total = (mode === 'work' ? SettingsInfo.WorkTime : SettingsInfo.PauseTime)*60;
-    const progress = (((minutes*60)+second)*100/total);
+    const total = (mode === 'work' ? SettingsInfo.WorkTime : SettingsInfo.PauseTime) * 60;
+    const progress = (((minutes * 60) + second) * 100 / total);
     return (
         <div>
             <CircularProgressbar value={progress}

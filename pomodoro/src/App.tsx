@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import './App.css'
 import Timer from './Timer'
-import Settings from './Settings';
-import SettingsContext from './SettingsContext';
+import Settings from './settings/Settings';
+import SettingsContext from './settings/SettingsContext';
 
 function App() {
   const [isSettings, SetisSettings] = useState(false);
@@ -21,7 +20,7 @@ function App() {
         isStop,
         SetisStop
       }}>
-        <div style={{marginTop:'100px'}}>
+        <div style={{ marginTop: '100px' }}>
           {isSettings ? <Settings /> : <Timer />}
         </div>
       </SettingsContext.Provider>
